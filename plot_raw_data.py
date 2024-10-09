@@ -14,6 +14,8 @@ def open_file():
 
 def plot(raw_data,file_name):
     raw_data = raw_data.split(',')
+    time_scale = raw_data[0]
+    raw_data.pop[0]
     data = []
     for data_point in raw_data:
         data.append(float(data_point))

@@ -80,7 +80,8 @@ def fft_and_plot(data, time_datapoint):
     plt.title('Frequency Domain (FFT)')
     plt.xlabel('Frequency [Hz]')
     plt.ylabel('Amplitude [V]')
-    #plt.xlim(0, 250)  # Begränsa X-axeln till 0-250 Hz
+    plt.xlim(1000, 4000)
+    plt.ylim(0,250)  # Begränsa X-axeln till 0-250 Hz
     plt.grid(True)
 
 def main():

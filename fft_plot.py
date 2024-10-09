@@ -74,8 +74,9 @@ def fft_and_plot(data, time_datapoint):
     # Bara positiva frekvenser
     positive_freqs = frequencies[:len(frequencies) // 2]
     positive_magnitude = fft_magnitude[:len(frequencies) // 2]
-
     plt.subplot(2, 1, 2)
+    # Set frequency limit to 0 - 1000 Hz
+    plt.xlim(0, 1000)
     plt.plot(positive_freqs, positive_magnitude, color='red')
     plt.title('Frequency Domain (FFT)')
     plt.xlabel('Frequency [Hz]')

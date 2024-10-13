@@ -1,21 +1,21 @@
+# Plots the data from a selected data file from the data folder.
+
 import numpy as np
 import matplotlib.pyplot as plt
 import os
 
+# Ask if the user want to open the latest file or a specific file
 def open_file():
         
-    selection = input('Open lastest file [y/n]: ')
+    selection = input('Open latest test file [y/n]: ')
     if selection == 'y':
         directory_path = 'data/'
         most_recent_file = None
         most_recent_time = 0
-        # iterate over the files in the directory using os.scandir
         for entry in os.scandir(directory_path):
             if entry.is_file():
-                # get the modification time of the file using entry.stat().st_mtime_ns
                 mod_time = entry.stat().st_mtime_ns
                 if mod_time > most_recent_time:
-                    # update the most recent file and its modification time
                     most_recent_file = entry.name
                     most_recent_time = mod_time
             file_path = 'data/' + most_recent_file
@@ -25,6 +25,7 @@ def open_file():
         print('Unknown selection')
         exit()
     
+    # Opens the requested file and returns the data and file name
     try:
         file = open(file_path, mode = 'r')
         raw_data = file.read()
@@ -36,7 +37,7 @@ def open_file():
         exit()
     return raw_data, file_name
 
-
+# Processes the data from the file and plots it line diagram
 def plot(raw_data,file_name):
     raw_data = raw_data.split(',')
     time_scale = raw_data[0]

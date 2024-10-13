@@ -1,3 +1,6 @@
+# Plots the FFT from the data that is imported from the data folder
+# The FFT calculations do not work as intended
+
 import numpy as np
 import matplotlib.pyplot as plt
 import os
